@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratique Casper</title>
+    <link rel="stylesheet" href="./assets/css/homepageDesign.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+    <script src="./assets/js/questions.js"></script>
+</head>
+
+<body>
+    <section class ="header">
+        <nav>
+            <div class="nav-links" id="navLinks">
+                <ul>
+                    <li><a href="homepage.html">ACCUEIL</a></li>
+                    <li><a href="simulation.html">SIMULATION CASPER</a></li>
+                    <!-- <li><a href="">RÉPONSES</a></li>
+                    <li><a href="">À PROPOS DE NOUS</a></li> -->
+                    <li><a href="">CONTACT</a></li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+
+    <div class = "containers">
+        <div class = "boxes">
+            <p>Temps restant</p>
+            <div id="app"></div>
+            <h2 id="role">METTRE TYPE DE ROLE ICI</h2>
+            
+            <h3 id="scenario">METTRE TYPE DE SCENARIO ICI</h3>
+            <p id="question1">METTRE QUESTION #1 ICI</p>
+            <textarea class="text" placeholder="Veuillez écrire votre réponse ici."></textarea>
+            <p id="question2">METTRE QUESTION #2 ICI</p>
+            <textarea class="text" placeholder="Veuillez écrire votre réponse ici."></textarea>
+            <p id="question3">METTRE QUESTION #3 ICI</p>
+            <textarea class="text" placeholder="Veuillez écrire votre réponse ici."></textarea>
+            <button class = "btn" href="simulation.html">Soumettre</button>
+        </div>
+    </div>
+
+<!--Footer-->
+<section class="footer">
+    <h4>Pratique Casper</h4>
+</section>
+
+<!--JavaScript for Toggle Menu-->
+<script>
+var questions = [
+    {
+      role: "Vous êtes un enseignant",
+      scenario: "Des enseignants discutent de la fête des mères qui arrive à grand pas. Ils mentionnent qu'il y a des familles qui ne rentrent pas dans le cadre familial normale, c'est-à-dire une famille avec des enfants, un père et une mère. En effet, il faut considérer les familles monoparentales, les familles adoptives, les familles avec deux pères, les familles avec un père veuf, etc. Les enseignants veulent faire quelque chose pour que tout le monde se sent inclus.",
+      question_1: "Quelle est ta positon par rapport à cet avis ?",
+      question_2: "Quelles solutions proposerais-tu ?",
+      question_3: "Tu penses quoi de cela ?",
+    },
+    {
+      role: "Tu es un parent",
+      scenario: "Un père discute avec sa fille après sa partie de hockey. Il mentionne que le logo de leur équipe est un symbole autochtone. Il insiste sur le fait que cela pourrait offenser des membres des Premières Nations et qu’il serait important de le changer. La fille dit que les chandails ont déjà été produits et que cela couterait cher de recommencer la production de zéro. Le père dit que c’est important de changer le logo peu importe le coût, c’est une question de respect.",
+      question_1: "Quelle est ta positon par rapport à cet avis ?",
+      question_2: "Quelles solutions proposerais-tu ?",
+      question_3: "Dans quel cas c'est acceptable d'utiliser des symmboles de d'autres cultures?",
+    },
+    {
+      role: "Vous êtes un ami",
+      scenario: "Tu es avec tes ami(e)s et vous découvrez que votre groupe de musique préféré arrive en ville. Le concert est bientôt et vous prévoyez acheter des billets, mais un membre du cercle d’ami n’a pas l’argent pour se procurer un billet pour le concert. Donc, vous lui proposez d’acheter un billet, comme ça il pourrait venir avec vous. Toutefois, à la surprise générale, il le prend mal et refuse catégoriquement que vous lui achetiez un billet. Il part avec un air vexé. ",
+      question_1: "Quelles solutions proposerais-tu ?",
+      question_2: "Imaginons qu'il accepte le billet en cadeau d'un autre groupe d'ami, change-tu ta réaction?",
+      question_3: "Malgré son désaccord, vous lui achetiez le billet, comment allez-vous le lui donner ?",
+    },
+    {
+      role: "Vous êtes un participant du défi",
+      scenario: "MISE EN SITUATION : Tu seras envoyé(e) sur une île déserte / une forêt afin de faire un défi de survie.",      
+      question_1: "Comment vas-tu te préparer pour ce défi ? Si tu n'as le droit que d'amener un objet, quel objet choisiserais-tu ?",
+      question_2: "Quelles sont les qualités que tu possèdent qui t'aideront ? Quels sont les défaut que tu possèdent qui te seront un défi à surmonter ?",
+      question_3: "Quelles seraient les leçons que tu apprendrais suite à ce défi ?",
+    },
+    {
+      role: "Vous êtes un ami(e)",
+      scenario: "Tu discute avec une amie de longue date. Elle vient d’obtenir un nouvel emploi qui lui tient à cœur. Elle mentionne que son nouveau groupe de travail est déterminé à accomplir les tâches qui leur sont désignées. En conséquent, ses collègues font de longues rencontres après les heures de travail (heures supplémentaires non payées). Étant donné qu’elle est nouvelle, elle se dit qu’elle ne pas refuser, au risque de faire mauvaise impression. Ainsi, elle n’a plus le temps de s’occuper de sa famille. ",      
+      question_1: "Quelle est ta réaction ?",
+      question_2: "Si elle était consciente des rencontres après le travail avant d'être engagée, en quoi cela changerai ta réaction ?",
+      question_3: "Plusieurs personnes peinent à trouver un équilibre vie privée-travail, quelle est ton avis sur ce sujet ?",
+    },
+  ];
+  
+var rand = Math.floor(Math.random() * questions.length);
+
+
+document.getElementById("role").innerHTML = questions[rand].role;
+document.getElementById("scenario").innerHTML = questions[rand].scenario;
+document.getElementById("question1").innerHTML = questions[rand].question_1;
+document.getElementById("question2").innerHTML = questions[rand].question_2;
+document.getElementById("question3").innerHTML = questions[rand].question_3;
+
+    // Credit: Mateusz Rybczonec
+
+const FULL_DASH_ARRAY = 283;
+const WARNING_THRESHOLD = 10;
+const ALERT_THRESHOLD = 5;
+
+const COLOR_CODES = {
+  info: {
+    color: "green"
+  },
+  warning: {
+    color: "orange",
+    threshold: WARNING_THRESHOLD
+  },
+  alert: {
+    color: "red",
+    threshold: ALERT_THRESHOLD
+  }
+};
+
+const TIME_LIMIT = 360;
+let timePassed = 0;
+let timeLeft = TIME_LIMIT;
+let timerInterval = null;
+let remainingPathColor = COLOR_CODES.info.color;
+
+document.getElementById("app").innerHTML = `
+<div class="base-timer">
+  <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <g class="base-timer__circle">
+      <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+      <path
+        id="base-timer-path-remaining"
+        stroke-dasharray="283"
+        class="base-timer__path-remaining ${remainingPathColor}"
+        d="
+          M 50, 50
+          m -45, 0
+          a 45,45 0 1,0 90,0
+          a 45,45 0 1,0 -90,0
+        "
+      ></path>
+    </g>
+  </svg>
+  <span id="base-timer-label" class="base-timer__label">${formatTime(
+    timeLeft
+  )}</span>
+</div>
+`;
+
+startTimer();
+
+function onTimesUp() {
+  clearInterval(timerInterval);
+}
+
+function startTimer() {
+  timerInterval = setInterval(() => {
+    timePassed = timePassed += 1;
+    timeLeft = TIME_LIMIT - timePassed;
+    document.getElementById("base-timer-label").innerHTML = formatTime(
+      timeLeft
+    );
+    setCircleDasharray();
+    setRemainingPathColor(timeLeft);
+
+    if (timeLeft === 0) {
+      onTimesUp();
+    }
+  }, 1000);
+}
+
+function formatTime(time) {
+  const minutes = Math.floor(time / 60);
+  let seconds = time % 60;
+
+  if (seconds < 10) {
+    seconds = `0${seconds}`;
+  }
+
+  return `${minutes}:${seconds}`;
+}
+
+function setRemainingPathColor(timeLeft) {
+  const { alert, warning, info } = COLOR_CODES;
+  if (timeLeft <= alert.threshold) {
+    document
+      .getElementById("base-timer-path-remaining")
+      .classList.remove(warning.color);
+    document
+      .getElementById("base-timer-path-remaining")
+      .classList.add(alert.color);
+  } else if (timeLeft <= warning.threshold) {
+    document
+      .getElementById("base-timer-path-remaining")
+      .classList.remove(info.color);
+    document
+      .getElementById("base-timer-path-remaining")
+      .classList.add(warning.color);
+  }
+}
+
+function calculateTimeFraction() {
+  const rawTimeFraction = timeLeft / TIME_LIMIT;
+  return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+}
+
+function setCircleDasharray() {
+  const circleDasharray = `${(
+    calculateTimeFraction() * FULL_DASH_ARRAY
+  ).toFixed(0)} 283`;
+  document
+    .getElementById("base-timer-path-remaining")
+    .setAttribute("stroke-dasharray", circleDasharray);
+}
+</script>
+
+</body>
+</html>
