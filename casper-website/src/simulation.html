@@ -31,10 +31,9 @@
 
     <div class = "containers">
         <div class = "boxes">
-            <p>Temps restant</p>
+            <p class="time">Temps restant</p>
             <div id="app"></div>
             <h2 id="role">METTRE TYPE DE ROLE ICI</h2>
-            
             <h3 id="scenario">METTRE TYPE DE SCENARIO ICI</h3>
             <p id="question1">METTRE QUESTION #1 ICI</p>
             <textarea class="text" placeholder="Veuillez écrire votre réponse ici."></textarea>
@@ -42,7 +41,7 @@
             <textarea class="text" placeholder="Veuillez écrire votre réponse ici."></textarea>
             <p id="question3">METTRE QUESTION #3 ICI</p>
             <textarea class="text" placeholder="Veuillez écrire votre réponse ici."></textarea>
-            <button class = "btn" href="simulation.html">Soumettre</button>
+            <button class = "btn">Soumettre</button>
         </div>
     </div>
 
@@ -89,6 +88,56 @@ var questions = [
       question_2: "Si elle était consciente des rencontres après le travail avant d'être engagée, en quoi cela changerai ta réaction ?",
       question_3: "Plusieurs personnes peinent à trouver un équilibre vie privée-travail, quelle est ton avis sur ce sujet ?",
     },
+    {
+      role: "Vous êtes un membre de l'équipe. ",
+      scenario: "Le tournoi d’ultimate frisbee arrive à grand pas et votre équipe enchaîne les pratiques afin d’être prêt pour le grand jour. Toutefois, un membre de l’équipe dit qu’il ne pourra pas se présenter aux pratiques, mais il sera présent au tournoi. Les membres de l’équipe réagissent mal, ils mentionnent qu’il est important de venir au pratique, il n’est pas suffisant de juste se présenter au tournoi et que le membre en question toujours en retard et manque de sérieux lors des entrainements. Le membre dit qu’il a beaucoup de pression et qu’il doit aider sa mère qui part en voyage bientôt.",      
+      question_1: "Comment réagis-tu à cette interaction ?",
+      question_2: "Tes coéquipiers te proposent de l’expulser, qu’est-ce tu en pense ?",
+      question_3: "Il arrive des situations où on n’est pas à la hauteur des exigences. Nomme une situation et comment t’as fait pour surmonter cette difficulté ?",
+    },
+    {
+      role: "Vous êtes un ami(e) ",
+      scenario: "Ton collègue mentionne qu’il travaille dans une entreprise. Il te raconte une anecdote qui lui est arrivé. Son patron était fâché, parce que selon lui le rapport que ton collègue lui a rendu était bâclé. Il est venu dans le bureau de ton ami, il a jeté le rapport sur bureau et lui dit qu’un enfant de 4 ans ferait un meilleur travail. Ton ami a dit son patron qu’il a un souper de famille dans 1 heure, à 18h, donc il ne peut pas recommencer le projet. Son patron lui dit d’un ton ironique qu’au moins il sait compter et qu’il veut que le rapport soit sur son bureau demain matin. ",      
+      question_1: "Qu’est-ce tu fais pour aider ton collègue ?",
+      question_2: "ton collègue te dit que c’est injuste et que les directives n'étaient pas précises qu’est-ce tu lui dis ?",
+      question_3: "Il arrive des situations où on n’est pas à la hauteur des exigences. Nomme une situation et comment t’as fait pour surmonter cette difficulté ?",
+    },
+    {
+      role: "MISE EN SITUATION ",
+      scenario: "La vie est remplie d'imprévues. Chacun d'entre nous à déjà vécu des situations délicates avec son entourage, que ce soit le décès d'un proche, un accident, etc.",      
+      question_1: "Nommez une situation délicate que vous avez vécue avec une autre personne et expliquez-la ?",
+      question_2: "Qu’est-ce qui était difficile pour abordez la situation ?",
+      question_3: "Comment annoncerez-vous une mauvaise nouvelle à un proche ?",
+    },
+    {
+      role: "Vous êtes un employeur ",
+      scenario: "Tu entrevue un homme asiatique pour un certain poste au sein de la boîte. La directrice des ressources humaines lui dit qu’elle a besoin d’une personne sociable et extraverti. Cette personne devra aller à des soirées de réseautage et des dîners d’entreprise. Le jeune homme mentionne qu’il préfère avoir des discussions un à un et que son côté réservé est important pour lui. C’est comme ça qu’il est productif, créatif et épanoui. ",      
+      question_1: "Quelle est ton impression par rapport à ce candidat à la suite de cette discussion ?",
+      question_2: "Est-ce que le fait qu’il vient d’une autre culture (autre qu’occidentale) explique ce comportement ?",
+      question_3: "Finalement, il ne correspond pas au profil recherché, comment l’annonceriez-vous au jeune homme ?",
+    },
+    {
+      role: "Vous êtes un ami(e) ",
+      scenario: "Ton ami t'annonce qu'il a décidé de prendre un cours d'Introduction à la Langue Espagnole afin d'augmenter ses résultats scolaires (GPA, Cote R, etc.). Sa langue maternelle est l'espagnole et son nom de famille est Hernandez, il a des origines hispanophones. Toutefois, les personnes dont la langue maternelle est l'espagnole ne peuvent pas prendre un cours d'introduction à cette langue.",      
+      question_1: "Quelles sont les suggestions que tu donnerais à ton ami ?",
+      question_2: "Vas-tu dénoncer ton ami à la direction ?",
+      question_3: "Raconte une fois que tu n'as pas dénoncer quelqu'un qui allait contre les réglements.",
+    },
+    {
+      role: "Vous êtes un gérant ",
+      scenario: "Tu viens d'obtenir une promotion au poste de gérant dans un magasin. Lors de ton premier jour en tant que gérant, tu entends une de tes employées qui se fait hurler dessus par un client. Les hurlements sont forts et le client montre une attitude négative. D'un coup, ton employée fond en larmes et répond de façon innapropriée devant les autres clients.",      
+      question_1: "",
+      question_2: "",
+      question_3: "",
+    },
+    {
+      role: "Vous êtes un ",
+      scenario: "",      
+      question_1: "",
+      question_2: "",
+      question_3: "",
+    },
+    
   ];
   
 var rand = Math.floor(Math.random() * questions.length);
@@ -100,7 +149,7 @@ document.getElementById("question1").innerHTML = questions[rand].question_1;
 document.getElementById("question2").innerHTML = questions[rand].question_2;
 document.getElementById("question3").innerHTML = questions[rand].question_3;
 
-    // Credit: Mateusz Rybczonec
+// Credit: Mateusz Rybczonec
 
 const FULL_DASH_ARRAY = 283;
 const WARNING_THRESHOLD = 10;
@@ -120,7 +169,7 @@ const COLOR_CODES = {
   }
 };
 
-const TIME_LIMIT = 360;
+const TIME_LIMIT = 10;
 let timePassed = 0;
 let timeLeft = TIME_LIMIT;
 let timerInterval = null;
@@ -168,6 +217,7 @@ function startTimer() {
 
     if (timeLeft === 0) {
       onTimesUp();
+      alert("Temps épuisé");
     }
   }, 1000);
 }
